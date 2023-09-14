@@ -31,6 +31,7 @@ body, html {
 /* Style form elements */
 .form-group {
     margin: 10px 0;
+    text-align: center;
 }
 
 input[type="text"],
@@ -63,14 +64,17 @@ button[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center; /* Center text within the form container */
 }
 
-/* Center the buttons horizontally */
+/* Center the buttons horizontally and vertically */
 .buttons {
     display: flex;
     flex-direction: column; /* Stack buttons vertically */
     align-items: center; /* Center buttons horizontally */
-    margin-top: 20px; /* Add margin to separate the boxes */
+    justify-content: center; /* Center buttons vertically */
+    height: 100%; /* Make the buttons container fill the height */
+    text-align: center; /* Center text within the buttons container */
 }
 
 .btn {
@@ -88,4 +92,50 @@ button[type="submit"]:hover {
 
 .btn:hover {
     background-color: #2980b9;
+}
+
+
+/* Style for the Sign Up button in signup.html */
+.signup-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 20px; /* Add top margin to center the button */
+}
+
+.signup-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Style for the Log In button in lsogin.html */
+.login-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 20px; /* Add top margin to center the button */
+}
+
+.login-btn:hover {
+    background-color: #2980b9;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px; /* Add top margin to center the button vertically */
+}
+
+.button-container button[type="submit"] {
+    display: inline-block;
 }
