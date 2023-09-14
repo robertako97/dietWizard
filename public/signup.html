@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up for Diet App</title>
     <link rel="stylesheet" href="/dietWizard/public/style/styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="container">
@@ -15,8 +16,8 @@
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="text" id="age" name="age" required>
+                <label for="birthday">Birthday:</label>
+                <input type="text" id="birthday" name="birthday" class="datepicker" required>
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
@@ -43,5 +44,20 @@
             </div>
         </form>
     </div>
+
+    <!-- Include jQuery and jQuery UI libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Initialize the datepicker -->
+    <script>
+        $(function() {
+            $("#birthday").datepicker({
+                dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: '1900:2030'
+            });
+        });
+    </script>
 </body>
 </html>
