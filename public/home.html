@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diet App Home</title>
-    <link rel="stylesheet" href="/dietWizard/public/style/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary data-bs-theme='dark'">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Diet Wizard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav --bs-dark-bg-subtle ms-auto">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="#">About Us</a>
+              <a class="nav-link" href="#">Contact Us</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+</header>
 <body>
     <div class="container">
-        <h1>Welcome to the DietWizard 🥗 🧙‍♂️</h1>
-        <div class="buttons">
-            <a href="login.html" class="btn">Log In</a>
-            <a href="signup.html" class="btn">Sign Up</a>
-        </div>
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="./images/wizard1.png" alt="" width="72" height="57">
+            <h1 class="display-5 fw-bold text-body-emphasis">Diet Wizard</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Easily and effortlessly design your diet for the next 30 days based on your metrics and preferred diets.</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Sign-Up</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Login</button>
+              </div>
+            </div>
+          </div>
     </div>
 </body>
 </html>
+
