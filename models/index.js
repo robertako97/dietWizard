@@ -10,8 +10,8 @@ const ingredients = require('./ingredients');
 
 foodPreference.belongsTo(userInfo, { foreignKey: 'username_id', onDelete: 'CASCADE'});
 
-userInfo.hasOne(userLogin, { foreignKey: 'user_id', onDelete: 'CASCADE' });
-userLogin.belongsTo(userInfo, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+//userInfo.hasOne(userLogin, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+//userLogin.belongsTo(userInfo, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 
 userInfo.hasOne(userPlan, { foreignKey: 'user_id', onDelete:'CASCADE'});
 
