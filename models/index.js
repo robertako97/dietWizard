@@ -22,3 +22,5 @@ ingredients.hasMany(meals, { foreignKey: 'ingredients_id'});
 
 
 module.exports = { foodPreference, ingredients, meals, userDiet, userInfo, userLogin, userPlan };
+
+
