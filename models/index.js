@@ -1,8 +1,8 @@
 const foodPreference = require('./foodPreference');
 const meals = require('./meals'); // Corrected import name
 const userDiet = require('./userDiet');
-const userInfo = require('./userInfo');
-const userLogin = require('./userLogin');
+const userInfo = require('./individual');
+const userLogin = require('./User');
 const userPlan = require('./userPlan');
 const ingredients = require('./ingredients');
 
