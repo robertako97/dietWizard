@@ -1,8 +1,8 @@
 const foodPreference = require('./foodPreference');
 const meals = require('./meals'); // Corrected import name
 const userDiet = require('./userDiet');
-const userInfo = require('./userInfo');
-const userLogin = require('./userLogin');
+const userInfo = require('./individual');
+const userLogin = require('./User');
 const userPlan = require('./userPlan');
 const ingredients = require('./ingredients');
 
@@ -10,8 +10,8 @@ const ingredients = require('./ingredients');
 
 foodPreference.belongsTo(userInfo, { foreignKey: 'username_id', onDelete: 'CASCADE'});
 
-userInfo.hasOne(userLogin, { foreignKey: 'user_id', onDelete: 'CASCADE' });
-userLogin.belongsTo(userInfo, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+//userInfo.hasOne(userLogin, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+//userLogin.belongsTo(userInfo, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 
 userInfo.hasOne(userPlan, { foreignKey: 'user_id', onDelete:'CASCADE'});
 
