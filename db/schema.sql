@@ -3,3 +3,5 @@ DROP DATABASE IF EXISTS diet_db;
 
 -- CREATE DATABASE
 CREATE DATABASE diet_db;
+
+USE diet_db;
