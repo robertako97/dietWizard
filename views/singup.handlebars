@@ -1,59 +1,79 @@
-<div class="container">
-        <div class="justify-content-sm-center">
-            <h4 class = "mb-3">Sign Up</h4>
+<link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+<body>
+    <nav class="navbar  navbar-expand-lg bg-body-tertiary data-bs-theme='dark'">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="#">Diet Wizard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav --bs-dark-bg-subtle ms-auto">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Contact Us</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4 class = "text-center mt-4">Sign Up</h4>
+        <div class="center-form">
             <form action="signup.php" method="POST">
                 <div class="form-group">
-                    <label for="fname" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="fname" name="fname" value="{{firstname}}" required>
+                    <label for="fname" class="form-label mt-4">First name:</label>
+                    <input type="text" class="form-control narrow-input" id="fname" name="fname" value="{{firstname}}" required max-width: 300px;>
                 </div>
                 <div class="form-group">
-                    <label for="lname" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lname" name="lname" value="{{lastname}}" required>
+                    <label for="lname" class="form-label mt-4">Last name:</label>
+                    <input type="text" class="form-control narrow-input" id="lname" name="lname" value="{{lastname}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{email}}" required>
+                    <label for="email" class="form-label mt-4">Email:</label>
+                    <input type="text" class="form-control narrow-input" id="email" name="email" value="{{email}}" required>
                     <div class="form-group">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" value="{{password}}" required>
+                        <label for="password" class="form-label mt-4">Password:</label>
+                        <input type="password" class="form-control narrow-input" id="password" name="password" value="{{password}}" required>
                         <input type="checkbox" id="showPassword"> Show Password
                     </div>
-                    <div class="form-group">
-                        <label for="username" class="form-label">Username</label>
+                    <div class="row form-group">
+                        <label for="username" class="form-label mt-4">Username:</label>
                         <div class="input-group has-validation">
-                            <span class = "input-group-text">@</span>
-                            <input type="text" class="input-group has-validation" id="username" name="username" value="{{username}}" required>
+                            <input type="text" class="input-group has-validation narrow-input" id="username" name="username" value="{{username}}" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="birthdate" class="form-label">Birthdate:</label>
-                        <input type="text" class="form-control" id="birthdate" name="birthdate" class="datepicker" value="{{birthdate}}"
+                        <label for="birthdate" class="form-label mt-4">Birthdate:</label>
+                        <input type="text" class="form-control narrow-input" id="birthdate" name="birthdate" class="datepicker" value="{{birthdate}}"
                             required>
                     </div>
                     <div class="form-group">
-                        <label for="gender" class="form-label">Gender:</label>
-                        <select class="form-select" id="gender" name="gender" required>
+                        <label for="gender" class="form-label mt-4">Gender:</label>
+                        <select class="form-select narrow-input" id="gender" name="gender" required>
                             <option value>Choose...</option>
                             <option value="male" {{#if isMale}}selected{{/if}}>Male</option>
                             <option value="female" {{#if isFemale}}selected{{/if}}>Female</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="weight">Weight (kg):</label>
                         <input type="number" id="weight" name="weight" min="1" max="300" value="{{weight}}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="height">Height (cm):</label>
                         <input type="number" id="height" name="height" min="1" max="250" value="{{height}}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <label for="weightgoal">Weight goal (kg):</label>
                         <input type="number" id="weightgoal" name="weightgoal" min="1" max="300" value="{{weightgoal}}"
                             required>
                     </div>
-                    <div class="form-group">
-                        <label for="activitylevel">Activity level:</label>
-                        <select id="activitylevel" name="activitylevel" required>
+                    <div class="form-group mt-4">
+                        <label for="activitylevel">Activity level:</label><br>
+                        <select id="activitylevel" class="narrow-input" name="activitylevel" required>
                             <option value=""></option>
                             <option value="sedentary" {{#if isSedentary}}selected{{/if}}>Mostly sedentary (Little or no exercise)
                             </option>
@@ -67,8 +87,8 @@
                                 exercise and physical job)</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="typeofdiet">Type of diet:</label>
+                    <div class="form-group mt-4">
+                        <label for="typeofdiet">Type of diet:</label><br>
                         <select id="typeofdiet" name="typeofdiet" required>
                             <option value=""></option>
                             <option value="lowcarb" {{#if isLowCarb}}selected{{/if}}>Low-carb</option>
@@ -76,12 +96,12 @@
                             <option value="omnivore" {{#if isBetterBody}}selected{{/if}}>Better body</option>
                         </select>  
                     </div>
-                    <div class="form-group">
-                        <label for="allergies">Ingredients You're Allergic To:</label>
+                    <div class="form-group mt-4">
+                        <label for="allergies">Ingredients You're Allergic To:</label><br>
                         <textarea id="allergies" name="allergies" rows="4"></textarea>
                     </div>
-                    <div class="button-container">
-                        <button type="submit" class="btn">Submit</button>
+                    <div class="button-container mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg px-2 me-sm-3 fw-bold">Submit</button>
                     </div>
                 </div>
             </form>
@@ -115,3 +135,4 @@
         }
     });
 </script>
+</body>
