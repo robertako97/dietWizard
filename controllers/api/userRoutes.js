@@ -16,6 +16,8 @@ router.post('/', async (req, res) => {
   }
 });
 
+
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -35,6 +37,8 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
+
+
 
 
 
@@ -61,6 +65,39 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.post('/signup', async (req, res) => {
+  try {
+    // Create a new user with the provided data
+    const userData = await User.bulkCreate({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      lastname: req.body.lastname,
+      username: req.body.username,
+      age: req.body.age,
+      gender: req.body.gender,
+      weight: req.body.weight,
+      height: req.body.height,
+      weightgoal: req.body.weightgoal,
+      activitylevel: req.body.activitylevel,
+      typeofdiet: req.body.typeofdiet,
+
+    });
+
+    // Save user session data
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      // Respond with JSON data of the newly created user
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    // Handle any errors during user creation
+    res.status(400).json(err);
   }
 });
 

@@ -27,6 +27,46 @@ User.init(
             validate: {
                 isEmail: true,
             },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        lastname: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        height:{
+            type: DataTypes.DECIMAL,
+            allowNull: true,
+        },
+        weight:{
+            type: DataTypes.DECIMAL,
+            allowNull: true,
+        },
+        weightgoal:{
+            type: DataTypes.DECIMAL,
+            allowNull: true,
+        },
+        activitylevel:{
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        typeofdiet:{
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        sex:{
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        age:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
+        },
+        gender:{
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         password: {
             type: DataTypes.STRING,
