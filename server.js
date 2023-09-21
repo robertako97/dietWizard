@@ -28,7 +28,23 @@ const sess = {
 
 app.use(session(sess));
 
+// Serve static files from the 'node_modules' directory for Bootstrap
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 
+// Serve Bootstrap CSS and JavaScript
+app.use('/bootstrap/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+
+
+// Route to serve the login page
+app.get('/login', (req, res) => {
+    res.render('login');
+  });
+  
+  // Route to serve the signup page
+  app.get('/signup', (req, res) => {
+    res.render('signup');
+  });  
 
 
 
