@@ -1,28 +1,29 @@
 
     <nav class="navbar  navbar-expand-lg bg-body-tertiary data-bs-theme='dark'">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="#">Diet Wizard</a>
+          <a class="navbar-brand fw-bold" href="/">Diet Wizard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav --bs-dark-bg-subtle ms-auto">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Login</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link" href="/#features">Features</a>
+              <a class="nav-link" href="/#contact-us">Contact Us</a>
             </div>
           </div>
         </div>
     </nav>
 
     <div class="container">
+        <img class="d-block mx-auto mt-4 mb-4" src="/images/wizard1.png" alt="logo" width="80" height="auto">
         <h4 class = "text-center mt-4">Sign Up</h4>
-        <div class="center-form">
+        <div class="center-form mx-auto text-center">
             <form action="signup.php" method="POST">
                 <div class="form-group">
                     <label for="fname" class="form-label mt-4">First name:</label>
-                    <input type="text" class="form-control narrow-input" id="fname" name="fname" value="{{firstname}}" required max-width: 300px;>
+                    <input type="text" class="form-control narrow-input" id="fname" name="fname" value="{{firstname}}" required>
                 </div>
                 <div class="form-group">
                     <label for="lname" class="form-label mt-4">Last name:</label>
@@ -36,10 +37,10 @@
                         <input type="password" class="form-control narrow-input" id="password" name="password" value="{{password}}" required>
                         <input type="checkbox" id="showPassword"> Show Password
                     </div>
-                    <div class="row form-group">
+                    <div class="form-group">
                         <label for="username" class="form-label mt-4">Username:</label>
                         <div class="input-group has-validation">
-                            <input type="text" class="input-group has-validation narrow-input" id="username" name="username" value="{{username}}" required>
+                            <input type="text" class="input-group narrow-input" id="username" name="username" value="{{username}}" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -98,7 +99,7 @@
                         <textarea id="allergies" name="allergies" rows="4"></textarea>
                     </div>
                     <div class="button-container mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg px-2 me-sm-3 fw-bold">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-lg px-2 mb-4 me-sm-3 fw-bold">Submit</button>
                     </div>
                 </div>
             </form>

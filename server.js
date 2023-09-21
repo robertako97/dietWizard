@@ -36,6 +36,12 @@ app.use('/bootstrap/css', express.static(path.join(__dirname, 'node_modules/boot
 app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 
 
+
+ // Route to serve the home page
+ app.get('/home', (req, res) => {
+    res.render('home');
+  });  
+
 // Route to serve the login page
 app.get('/login', (req, res) => {
     res.render('login');

@@ -1,11 +1,13 @@
+.narrow-input {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 .center-form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
-
-/* Define a custom class to narrow the input fields */
-.narrow-input {
-    max-width: 300px; /* Adjust the width as desired */
-}
-
