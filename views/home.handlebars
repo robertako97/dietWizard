@@ -7,9 +7,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav --bs-dark-bg-subtle ms-auto">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Login</a>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#contact-us">Contact Us</a>
         </div>
       </div>
     </div>
@@ -17,55 +17,51 @@
 
 
 <div class="px-4 py-5 my-5 text-center">
-<img class="d-block mx-auto mb-4" src="/public/images/wizard1.png" alt="" width="72" height="57">
+<img class="d-block mx-auto mb-4" src="/images/wizard1.png" alt="logo" width="80" height="auto">
 <h1 class="display-5 fw-bold text-body-emphasis">Diet Wizard</h1>
 <div class="col-lg-6 mx-auto">
     <p class="lead mb-4">Easily and effortlessly design your diet for the next 30 days based on your metrics and preferred diets.</p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Sign-Up</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Login</button>
-    </div>
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+        <a href="/signup" class="text-white text-decoration-none">Sign-Up</a>
+    </button>
+    <button type="button" class="btn btn-outline-secondary btn-lg px-4">
+        <a href="/login" class="text-secondary text-decoration-none">Login</a>
+    </button>
+</div>
+
 </div>
 </div>
 
-<div class="container px-4 py-5" id="icon-grid">
-    <h2 class="pb-2 border-bottom">Features</h2>
-
+<div class="container px-4 py-5 d-flex flex-column" id="icon-grid">
+    <h2 class="pb-2 border-bottom" id="features">Features</h2>
+    <div class="d-flex flex-column align-items-center">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#bootstrap"></use></svg>
+      <div class="col d-flex">
         <div>
-          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Science Based</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Simple and Effective</h3>
+          <p>A simple and effective diet that works.</p>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#cpu-fill"></use></svg>
+      <div class="col d-flex">
         <div>
           <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Effortless</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <p>The generated diets are easy to follow, because we offer the choice of eliminating undesired food items.</p>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#calendar3"></use></svg>
+      <div class="col d-flex">      
         <div>
-          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Fast</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
+          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Science Based</h3>
+          <p>The diets are based on the most recent science available.</p>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"></use></svg>
-        <div>
-          <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Effective</h3>
-          <p>Paragraph of text beneath the heading to explain the heading.</p>
-        </div>
-      </div>
+    </div>
     </div>
   </div>
 
   <div class="bg-dark text-secondary px-4 py-5 text-center">
     <div class="py-5">
-      <h1 class="display-5 fw-bold text-white">Contact Us</h1>
+      <h1 class="display-5 fw-bold text-white" id="contact-us">Contact Us</h1>
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">Contact us for any additional information.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
