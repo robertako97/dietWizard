@@ -1,4 +1,4 @@
-# Diet Wizard
+# Diet Wizard 🧙
 
 The Diet Wizard App is a comprehensive solution 
 that allows users to create personalized diet plans using their individual preferences and nutritional needs. 
