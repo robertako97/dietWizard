@@ -10,7 +10,7 @@ class User extends Model {
 
 User.init(
     {
-        user_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -27,6 +27,7 @@ User.init(
             validate: {
                 isEmail: true,
             },
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -35,36 +36,31 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        height:{
+        height: {
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
-        weight:{
+        weight: {
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
-        weightgoal:{
+        weightgoal: {
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
-        activitylevel:{
+        activitylevel: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        typeofdiet:{
+        typeofdiet: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        sex:{
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-        age:{
+        age: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        }
         },
-        gender:{
+        gender: {
             type: DataTypes.STRING,
             allowNull: true,
         },
