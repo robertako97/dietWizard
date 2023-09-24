@@ -1,15 +1,5 @@
-<section>
-    <h2>Profile Details:</h2>
-    <ul>
-        <li>Username: {{this.username}}</li>
-        <li>Age: {{user.age}}</li>
-        <li>Gender: {{user.gender}}</li>
-        <li>Current Weight: {{user.weight}} kg</li>
-        <li>Weight Goal: {{user.goal}} kg</li>
-    </ul>
-</section>
 
-{{#unless indivudal}}
+{{#unless this.individual}}
     <div class="container">
         <section class="wrapUp-section">
             <img class="d-block mx-auto mt-4 mb-4" src="/images/wizard1.png" alt="logo" width="80" height="auto">
@@ -102,6 +92,46 @@
         </section>
     </div>
     <script src="/js/wrapUp.js"></script>
+{{else}}
+    <!-- Profile Section Container -->
+    <div class="container-fluid mt-5">
+        <div class="row align-items-center">
+
+            <!-- Profile Picture -->
+            <div class="col-md-3 text-center">
+                <img src="/images/profile/profile{{this.user_id}}.jpeg" alt="User Profile Picture" class="rounded-circle" width="150">
+                <button class="btn btn-outline-secondary mt-3">Change Picture</button>
+            </div>
+
+            <!-- User Details -->
+            <div class="col-md-9">
+                <h2>HELLO! {{this.individual.first_name}} {{this.individual.last_name}}</h2>
+                <p class="text-muted">{{this.email}}</p>
+                <p>Age: {{birthdateToAge this.individual.birthday}}</p>
+                <p>Gender: {{genderLowerCase this.individual.sex}}</p>
+                <p>Weight: {{this.individual.weight}} kg</p>
+                <p>Goal Weight: {{this.individual.weight}} kg</p>
+                <!-- Edit Profile Button -->
+                <!--<a href="/edit-profile" class="btn btn-primary">Edit Profile</a>-->
+            </div>
+
+            <div class="col-md-9">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+                    <a href="/create-plan" class="text-white text-decoration-none">Make A New Plan</a>
+                </button>
+            </div>
+
+            {{#if this.individual.plans}}
+                <div class="col-md-9">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+                        <a href="/get-plans" class="text-white text-decoration-none">Get Your Plans</a>
+                    </button>
+                </div>
+            {{/if}}
+
+        </div>
+    </div>
+
 {{/unless}}
 
 <script src="/js/logout.js"></script>
