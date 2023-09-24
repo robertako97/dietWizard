@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plan, Individual, Diet, Diet_meals} = require('../models');
+const { User, Plan, Individual, Diet, Diet_meals,Ingredients, Meals} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -22,7 +22,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/setprofile', withAuth, async (req, res) => {
 
   try {
     // Find the logged-in user based on the session ID
@@ -34,7 +34,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('SetProfile', {
       ...user,
       logged_in: true
     });
@@ -43,20 +43,48 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+router.get('/profile', withAuth, async (req, res) => {
+
+  try {
+    // Find the logged-in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+    });
+    const user = userData.get({ plain: true });
+    const individualData = await Individual.findByPk(req.session.user_id, {
+    });
+    const individual = individualData.get({ plain: true });
+    const planData = await Plan.findOne({
+      where: {
+        individual_id: req.session.user_id,
+      },
+    });
+     const plan = planData.get({ plain: true });
+
+
+    res.render('profile', {
+      ...user, individual, plan,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 router.get('/diets', withAuth, async (req, res) => {
   try {
 
-    const dietData = await Diet.findAll({
-      include: Diet_meals,
-
+    const mealsData = await Meals.findAll({
     });
+    const meals = mealsData.map((meal) => meal.get({ plain: true }));
+    const ingredientsData = await Ingredients.findAll({
+    });
+    const ingredients = ingredientsData.map((ingredient) => ingredient.get({ plain: true }));
 
-
-    const diets = dietData.map((diet) => diet.get({ plain: true }));
 
 
     res.render('diet', {
-      diets,
+      meals, ingredients,
       logged_in: req.session.logged_in,
     });
 
