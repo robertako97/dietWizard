@@ -62,7 +62,7 @@ To run Note Taker on your local machine, follow these steps:
     SESSION_SECRET=Your_Session_Secret
     RAPID_API_KEY=Your_RapidAPI_Key
     ```
-[[**API:** Bespoke Diet Generator](https://rapidapi.com/genez-io-genez-io-default/api/bespoke-diet-generator)]
+### [[**API:** *Bespoke Diet Generator*](https://rapidapi.com/genez-io-genez-io-default/api/bespoke-diet-generator)]
 
 5. Open your web browser and go to http://localhost:3000 to access the application.
 
@@ -82,6 +82,6 @@ Contributions to DietWizard are welcome! If you have any ideas, bug reports, or 
 
 This project is [MIT licensed](./LICENSE).
 
-#### **CLICK [HERE](https://dashboard.heroku.com/login) TO SEE APP DEPLOYED**
+#### **CLICK [HERE]() TO SEE APP DEPLOYED**
 
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
