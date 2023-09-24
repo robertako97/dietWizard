@@ -33,8 +33,8 @@ Ensure you have the following installed and set up:
 
 1. **Clone the Repository**
     ```bash
-    git clone [your-repo-url]
-    cd [your-repo-name]
+    git clone [https://github.com/robertako97/dietWizard/tree/working]
+    cd [dietWizard]
     ```
 
 2. **Install Dependencies**
