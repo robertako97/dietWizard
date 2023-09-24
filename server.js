@@ -4,8 +4,9 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 require('dotenv').config();
 
@@ -16,16 +17,14 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ defaultLayout: 'main' });
+const hbs = exphbs.create({ helpers });
 
 
 // Session
 app.use(session({
-    secret: 'Super secret secret',
+    secret: process.env.SESSION_SECRET,
     cookie: {
-        maxAge: 300000,
-        httpOnly: true,
-        secure: false,
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         sameSite: 'strict',
     } /*{ secure: true }*/,
     resave: false,
@@ -41,7 +40,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(morgan('combined'));
+app.use(morgan('combined'));
 
 app.use(routes);
 
