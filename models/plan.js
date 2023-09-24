@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const {Model, DataTypes, literal} = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Plan extends Model {
@@ -16,10 +16,11 @@ Plan.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    diet_duration: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      diet_duration: {
+          type: DataTypes.DATE,
+          allowNull: true,
+          defaultValue: DataTypes.NOW,
+      },
     weight_goal: {
       type: DataTypes.FLOAT,
       allowNull: false,
