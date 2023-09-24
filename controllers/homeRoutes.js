@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Plan, Individual} = require('../models');
+const { User, Plan, Individual, Diet, Diet_meals} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -42,5 +42,29 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/diets', withAuth, async (req, res) => {
+  try {
+
+    const dietData = await Diet.findAll({
+      include: Diet_meals,
+
+    });
+
+
+    const diets = dietData.map((diet) => diet.get({ plain: true }));
+
+
+    res.render('diet', {
+      diets,
+      logged_in: req.session.logged_in,
+    });
+
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
