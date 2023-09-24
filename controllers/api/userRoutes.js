@@ -84,7 +84,7 @@ router.post('/individual', async (req, res) => {
         individual_id: userId,
         user_id: userId,
       });
-console.log(individualData);
+
       const planData = await Plan.create({
         weight_goal: weightGoal,
         diet_type: typeOfDiet,
