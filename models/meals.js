@@ -1,28 +1,29 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class meals extends Model {}
+class Meals extends Model {
+}
 
-meals.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        meal_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
+Meals.init(
+  {
+    meals_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'meals',
+    meal_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'meals',
+  }
 );
 
-module.exports = meals;
+module.exports = Meals;
