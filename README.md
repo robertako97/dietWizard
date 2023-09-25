@@ -52,8 +52,8 @@ To run Note Taker on your local machine, follow these steps:
    npm install
 
 4. Configure Environment Variables
-    - Create a `.env` file in the root directory.
-    - Populate it with the following:
+   - Create a `.env` file in the root directory.
+   - Populate it with the following:
 
     ```plaintext
     DB_NAME=Your_Database_Name
