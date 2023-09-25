@@ -31,7 +31,8 @@ const wrapUpFormHandler = async (event) => {
 
     if (response.ok) {
       console.log('wrapUp response: ', response)
-      document.location.replace('/diet');
+      document.location.replace('/profile');
+
     } else {
       alert('Wrap Up failed, verify credentials and try again.');
     }

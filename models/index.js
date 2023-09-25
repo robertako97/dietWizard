@@ -1,11 +1,9 @@
 const Preference = require('./preference');
 const Meals = require('./meals');
-const Diet = require('./diet');
 const User = require('./user');
 const Plan = require('./plan');
-const Ingredients = require('./ingredients');
-const Diet_meals = require('./diet_meals');
 const Individual = require('./individual');
+const Meal_ingredients = require('./meal_ingredients');
 
 // Setup relationships
 User.hasOne(Individual, {
@@ -35,40 +33,23 @@ Plan.belongsTo(Individual, {
   foreignKey: 'individual_id'
 });
 
-Plan.hasMany(Diet, {
+Plan.hasMany(Meals, {
   foreignKey: 'plan_id',
   onDelete: 'CASCADE'
 });
 
-Diet.belongsTo(Plan, {
+Meals.belongsTo(Plan, {
   foreignKey: 'plan_id'
 });
 
-Diet.hasMany(Diet_meals, {
-  foreignKey: 'diet_id',
-  onDelete: 'CASCADE'
-});
 
-Diet_meals.belongsTo(Diet, {
-  foreignKey: 'diet_id'
-});
-
-Diet_meals.belongsTo(Meals, {
-  foreignKey: 'meal_id'
-});
-
-Meals.hasMany(Diet_meals, {
+Meals.hasMany(Meal_ingredients, {
   foreignKey: 'meal_id',
   onDelete: 'CASCADE'
 });
 
-Diet_meals.hasMany(Ingredients, {
-  foreignKey: 'diet_meals_id',
-  onDelete: 'CASCADE'
+Meal_ingredients.belongsTo(Meals, {
+  foreignKey: 'meal_id'
 });
 
-Ingredients.belongsTo(Diet_meals, {
-  foreignKey: 'diet_meals_id'
-});
-
-module.exports = { Preference, Meals, Ingredients, Diet, User, Plan, Diet_meals, Individual };
+module.exports = { Preference, Meals, Meal_ingredients, User, Plan, Individual };

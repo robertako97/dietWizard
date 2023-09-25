@@ -30,7 +30,7 @@ Preference.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'food_preference',
+    modelName: 'preference',
   }
 );
 

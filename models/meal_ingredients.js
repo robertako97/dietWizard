@@ -1,32 +1,32 @@
-const { Model, DataTypes} = require('sequelize');
+const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Diet_meals extends Model {
+class Meals_ingredients extends Model {
 }
 
-Diet_meals.init(
+Meals_ingredients.init(
   {
-    diet_meals_id: {
+    meals_ingredients_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    diet_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'diet',
-        key: 'diet_id'
-      },
+    ingredient: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    meals_id: {
+    quantity: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    meal_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'meals',
         key: 'meals_id'
-      }
+      },
     }
 
   },
@@ -35,8 +35,8 @@ Diet_meals.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'diet_meals',
+    modelName: 'meals_ingredients',
   }
 );
 
-module.exports = Diet_meals;
+module.exports = Meals_ingredients;
