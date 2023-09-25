@@ -82,6 +82,6 @@ or submit a pull request on GitHub.
 
 This project is [MIT licensed](./LICENSE).
 
-#### **CLICK [HERE]() TO SEE APP DEPLOYED**
+#### **CLICK [HERE](https://diet-wizard-930125214349.herokuapp.com/) TO SEE APP DEPLOYED**
 
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
