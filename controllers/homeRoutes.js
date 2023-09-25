@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Plan, Individual, Meals, Meal_ingredients} = require('../models');
+
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -28,7 +29,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/setprofile', withAuth, async (req, res) => {
 
   try {
     // Find the logged-in user based on the session ID
@@ -44,7 +45,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('SetProfile', {
       ...user,
       logged_in: true
     });
@@ -99,6 +100,7 @@ router.get('/get-plan', withAuth, async (req, res) => {
     }
   } catch (err) {
     console.error('Error occurred: ', err);
+
     res.status(500).json(err);
   }
 });
@@ -156,6 +158,7 @@ router.get('/all-plans', withAuth, async (req, res) => {
   } catch (error) {
     console.error('Error fetching the diet plans:', error);
     res.status(500).send('Internal Server Error');
+
   }
 });
 
