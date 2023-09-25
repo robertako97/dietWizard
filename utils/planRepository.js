@@ -6,25 +6,32 @@ async function savePlan(apiResponse, data) {
   try {
     const savedPlan = await Plan.create(data, { transaction });
 
-    const mealsData = apiResponse.meals;
-    console.log(mealsData);
-    for (let meal of mealsData) {
-      const savedMeal = await Meals.create({
-        meal_type: meal.type,
-        plan_id: savedPlan.plan_id
-      }, { transaction });
+    const dailyPlans = apiResponse.dailyPlan;
 
-      for (let ingredient of meal.ingredients) {
-        await Meal_ingredients.create({
-          ingredient: ingredient.name,
-          quantity: ingredient.quantity,
-          meal_id: savedMeal.meals_id
+    for (let daily of dailyPlans) {
+      const mealsData = daily.meals;
+
+      for (let meal of mealsData) {
+
+        const savedMeal = await Meals.create({
+          meal_type: meal.type,
+          plan_id: savedPlan.plan_id
         }, { transaction });
+
+
+        for (let ingredient of meal.ingredients) {
+
+          await Meal_ingredients.create({
+            ingredient: ingredient.name,
+            quantity: ingredient.quantity,
+            meal_id: savedMeal.meals_id
+          }, { transaction });
+        }
       }
     }
 
     await transaction.commit();
-    console.log(savedPlan);
+
     return savedPlan;
   } catch (error) {
     await transaction.rollback();
@@ -32,6 +39,4 @@ async function savePlan(apiResponse, data) {
   }
 }
 
-module.exports = {
-  savePlan
-};
+module.exports = { savePlan };

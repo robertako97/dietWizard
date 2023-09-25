@@ -17,7 +17,7 @@ router.post('/create', async (req, res) => {
     weightGoal: weightGoal,
     dietDuration: dietDuration
   };
-  console.log('apiData: ', apiData);
+
   // Config for Axios request
   const config = {
     method: 'put',
@@ -34,9 +34,9 @@ router.post('/create', async (req, res) => {
   try {
     // PUT request to the third-party API
     const apiResponse = await axios(config);
-    const dietPlan = apiResponse.data; // The response from the third-party API
-    console.log('dietPlan: ', dietPlan);
-    console.log('dailyPlan: ', dietPlan.dailyPlan[0]);
+    // The response from the third-party API
+    const dietPlan = apiResponse.data;
+
     // Use the Plan model to save the diet plan data to your database
     const savedPlan = await Plan.create({
       diet_type: dietType,
@@ -51,16 +51,15 @@ router.post('/create', async (req, res) => {
       const mealsData = daily.meals;
 
       for (let meal of mealsData) {
-        console.log('meal: ', meal);
+
         const savedMeal = await Meals.create({
           meal_type: meal.type,
           plan_id: savedPlan.plan_id
         }, { transaction });
 
-        console.log('meal.ingredients: ', meal.ingredients);
 
         for (let ingredient of meal.ingredients) {
-          console.log('ingredient: ', ingredient);
+
           await Meal_ingredients.create({
             ingredient: ingredient.name,
             quantity: ingredient.quantity,
@@ -70,7 +69,7 @@ router.post('/create', async (req, res) => {
       }
     }
 
-    console.log('savedPlan', savedPlan);
+
     await transaction.commit();
     res.status(201).json(savedPlan);
   } catch (error) {
@@ -80,13 +79,15 @@ router.post('/create', async (req, res) => {
 });
 
 
-/*router.post('/create', async (req, res) => {
+/*
+router.post('/create', async (req, res) => {
   try {
     const savedPlan = await planService.createPlan(req.body);
     res.status(201).json(savedPlan);
   } catch (error) {
     res.status(500).json({ message: 'Error creating the plan.' });
   }
-});*/
+});
+*/
 
 module.exports = router;

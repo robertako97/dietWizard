@@ -36,6 +36,4 @@ async function createPlan(data) {
   return await planRepository.savePlan(apiResponse, data);
 }
 
-module.exports = {
-  createPlan
-};
+module.exports = { createPlan };
